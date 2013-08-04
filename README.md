@@ -57,16 +57,17 @@ The built version of typeRight will be put in the `dist/` subdirectory, along wi
 ## Usage
 
 ``` js
-typeRight(element, callback);
+typeRight(element, options, callback);
 ```
 
 you can use `new` if you like
 
 ``` js
-new typeRight(element, callback);
+new typeRight(element, options, callback);
 ```
 
 + `element` _Element, NodeList, Array, or Selector String_
++ `options` _Object, Object containing options passed to the instance
 + `callback` _Function_ - function triggered after all characters have been processed
 
 Using a callback function is the same as binding it to the `always` event (see below).
@@ -74,7 +75,7 @@ Using a callback function is the same as binding it to the `always` event (see b
 ### Element
 
 ``` js
-typeRight(document.querySelector('#container'), function (instance) {
+typeRight(document.querySelector('#container'), options, function (instance) {
     console.log(instance);
 });
 ```
@@ -82,32 +83,17 @@ typeRight(document.querySelector('#container'), function (instance) {
 ### Selector string
 
 ``` js
-typeRight('#container', function () {...});
+typeRight('#container', options, function () {...});
 ```
 
 ### Multiple elements
 
 ``` js
 var buttons = document.querySelectorAll('.button');
-typeRight(buttons, function () {...});
+typeRight(buttons, options, function () {...});
 ```
 
-## Options
-
-``` js
-typeRight(element, options, callback);
-```
-
-| Value     | Type      | Default   | Description                                        |
-| --------- | --------- | ----------| -------------------------------------------------- |
-| erase     | `boolean` | `false`   | Type or erase characters within the given element  |
-| content   | `string`  | `_empty_` | Content to type within the given element           |
-| append    | `boolean` | `false`   | Append characters to an existing content           |
-| striptags | `boolean` | `true`    | Strip HTML-Tags from the given content             |
-| delay     | `integer` | `100`     | Delay between each processed character             |
-| easing    | `boolean` | `false`   | Enables easing when processing characters          |
-
-### Type
+### Type example
 
 ``` js
 typeRight(element, {
@@ -118,7 +104,7 @@ typeRight(element, {
 });
 ```
 
-### Erase
+### Erase example
 
 ``` js
 typeRight(element, {
@@ -128,12 +114,23 @@ typeRight(element, {
 });
 ```
 
+## Options
+
+| Value     | Type      | Default   | Description                                        |
+| --------- | --------- | ----------| -------------------------------------------------- |
+| erase     | `boolean` | `false`   | Type or erase characters within the given element  |
+| content   | `string`  | `_empty_` | Content to type within the given element           |
+| append    | `boolean` | `false`   | Append characters to an existing content           |
+| striptags | `boolean` | `true`    | Strip HTML-Tags from the given content             |
+| delay     | `integer` | `100`     | Delay between each processed character             |
+| easing    | `boolean` | `false`   | Enables easing when processing characters          |
+
 ## Events
 
 typeRight is an Event Emitter. You can bind event listeners to events.
 
 ``` js
-var typer = typeRight(element);
+var typer = typeRight(element, options);
 function onAlways (instance) {
     console.log('always');
 }
@@ -194,7 +191,7 @@ Triggered after a single character has been processed.
 If you include jQuery, typeRight can be used as a jQuery Plugin.
 
 ``` js
-$('#container').typeRight(function () {
+$('#container').typeRight(options, function () {
   // callback
 });
 ```
@@ -204,7 +201,7 @@ $('#container').typeRight(function () {
 The jQuery plugin returns a [jQuery Deferred object](http://api.jquery.com/category/deferred-object/). This allows you to use `.always()`, `.done()` and `.progress()`, similarly to the emitted events.
 
 ``` js
-$('#container').typeRight()
+$('#container').typeRight(options)
     .always(function (instance) {
         console.log('always - all characters have been processed');
     })
