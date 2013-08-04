@@ -225,9 +225,9 @@ typeRight works with RequireJS.
 
 ``` js
 requirejs.config({
-  paths: {
-    "eventEmitter": "bower_components/eventEmitter"
-  }
+    paths: {
+        "eventEmitter": "vendor/eventEmitter"
+    }
 });
 ```
 
