@@ -3,9 +3,9 @@
 	<head>
 		<meta charset='utf-8'>
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/sunburst.min.css">
-		<link rel="stylesheet" href="stylesheets/stylesheet.css">
+		<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/github.min.css">
 		<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+		<link rel="stylesheet" href="stylesheets/stylesheet.css">
 		<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -61,8 +61,8 @@
 <pre><code class="lang-js"><span class="title">new</span> <span class="typedef">typeRight<span class="container">(<span class="title">element</span>, <span class="title">options</span>, <span class="title">callback</span>)</span>;</span></code></pre>
 <ul>
 <li><code>element</code> <em>Element, NodeList, Array, or Selector String</em></li>
-<li><code>options</code> <em>Object</em>, Object containing options passed to the instance</li>
-<li><code>callback</code> <em>Function</em> - function triggered after all characters have been processed</li>
+<li><code>options</code> <em>Object</em>, Object of options passed to the instance</li>
+<li><code>callback</code> <em>Function</em> - Function triggered after all characters have been processed</li>
 </ul>
 <p>Using a callback function is the same as binding it to the <code>always</code> event (see below).</p>
 <h3>Element</h3>
@@ -76,7 +76,7 @@
 typeRight(buttons, options, <span class="keyword">function</span> () {<span class="keyword">...</span>});</code></pre>
 <h3>Type example</h3>
 <pre><code class="lang-js"><span class="typedef">typeRight<span class="container">(<span class="title">element</span>, {
-    <span class="title">content</span>: '<span class="type">Lorem</span> <span class="title">ipsum</span> <span class="title">dolor</span> <span class="title">sit</span> <span class="title">amet</span>, <span class="title">consectetur</span> <span class="title">adipisicing</span> <span class="title">elit</span> ...',
+    <span class="title">content</span>: '<span class="type">A</span> <span class="title">simple</span> <span class="title">javascript</span> <span class="title">plugin</span> <span class="title">for</span> <span class="title">creating</span> <span class="title">typewriter</span> <span class="title">effects</span>.',
     <span class="title">append</span>: <span class="title">true</span>,
     <span class="title">delay</span>: 20,
     <span class="title">easing</span>: <span class="title">true</span>
@@ -139,7 +139,6 @@ typeRight(buttons, options, <span class="keyword">function</span> () {<span clas
 <h2>Events</h2>
 <p>typeRight is an Event Emitter. You can bind event listeners to events.</p>
 <pre><code class="lang-js"><span class="title">var</span> <span class="typedef">typer = typeRight<span class="container">(<span class="title">element</span>, <span class="title">options</span>)</span>;</span>
-
 <span class="title">function</span> onAlways (<span class="class"><span class="keyword">instance</span>) {
     console.log('always');
 }</code></pre>
