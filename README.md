@@ -8,8 +8,8 @@ Everything heavily inspired by the wonderful [imagesLoaded plugin](http://desand
 
 Get a packaged source file:
 
-+ [typeright.pkgd.min.js](http://github.com/mediastuttgart/typeright/latest/typeright.pkgd.min.js)
-+ [typeright.pkgd.js](http://github.com/mediastuttgart/typeright/latest/typeright.pkgd.js)
++ [typeright.pkgd.min.js](http://github.com/mediastuttgart/typeright/blob/v0.1.0/dist/typeright.pkgd.min.js)
++ [typeright.pkgd.js](http://github.com/mediastuttgart/typeright/blob/v0.1.0/dist/typeright.pkgd.js)
 
 Or install via [Bower](http://bower.io):
 
@@ -96,13 +96,14 @@ typeRight(buttons, function () {...});
 typeRight(element, options, callback);
 ```
 
-Value     | Type      | Default | Options           | Description
-erase     | `boolean` | false   | `true` or `false` | Type or erase characters of the given element
-content   | `string`  | ''      | `string`          | Content of the characters to process
-append    | `boolean` | false   | `true` or `false` | Append characters to the elements existing content
-striptags | `boolean` | true    | `true` or `false` | Strip HTML-Tags from the content
-delay     | `integer` | 100     | `integer`         | Delay between each processed character
-easing    | `boolean` | false   | `true` or `false` | Whether to use easing when processing characters
+| Value     | Type      | Default   | Description                                        |
+| --------- | --------- | ----------| -------------------------------------------------- |
+| erase     | `boolean` | `false`   | Type or erase characters within the given element  |
+| content   | `string`  | `_empty_` | Content to type within the given element           |
+| append    | `boolean` | `false`   | Append characters to an existing content           |
+| striptags | `boolean` | `true`    | Strip HTML-Tags from the given content             |
+| delay     | `integer` | `100`     | Delay between each processed character             |
+| easing    | `boolean` | `false`   | Enables easing when processing characters          |
 
 ### Type
 
@@ -136,13 +137,13 @@ function onAlways (instance) {
 }
 ```
 
-### Bind with `.on()`
+Bind with `.on()`
 
 ```js
 typer.on('always', onAlways);
 ```
 
-### Unbind with `.off()`
+Unbind with `.off()`
 
 ```js
 typer.off('always', onAlways);
