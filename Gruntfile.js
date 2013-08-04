@@ -50,9 +50,42 @@ module.exports = function(grunt) {
 					'dist/typeright.pkgd.min.js': ['dist/typeright.pkgd.js']
 				}
 			}
+		},
+		replace: {
+			docs: {
+				src: ['docs/README.md'],
+				dest: 'README.md',
+				replacements: [{
+					from: '%version%',
+					to: '<%= pkg.version %>'
+				}, {
+					from: '%date%',
+					to: '<%= grunt.template.today("mm/dd/yy") %>'
+				}]
+			}
+		},
+		markdown: {
+			all: {
+				files: [
+					{
+						expand: true,
+						src: '*.md',
+						dest: 'docs/',
+						ext: '.html'
+					}
+				],
+				options: {
+					template: 'docs/template.tpl',
+					markdownOptions: {
+						highlight: 'auto'
+					}
+				}
+			}
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-markdown');
+	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-copy');
@@ -60,4 +93,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	grunt.registerTask('default', ['clean', 'jshint', 'copy', 'concat', 'uglify']);
+	grunt.registerTask('docs', ['replace', 'markdown']);
 };

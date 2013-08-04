@@ -4,14 +4,22 @@ A simple javascript plugin for creating typewriter effects.
 
 [mediastuttgart.github.io/typeright](http://mediastuttgart.github.io/typeright)
 
-Everything heavily inspired by the wonderful [imagesLoaded plugin](http://desandro.github.io/imagesloaded/) from [David DeSandro](https://github.com/desandro)
+Code pattern and docs inspired by the wonderful [imagesLoaded plugin](http://desandro.github.io/imagesloaded/) from [David DeSandro](https://github.com/desandro)
+
+## Latest version
+
+0.1.0
+
+## Documentation
+
+08/04/13
 
 ## Install
 
 Get a packaged source file:
 
-+ [typeright.pkgd.js](http://mediastuttgart.github.io/typeright/typeright.pkgd.js)
-+ [typeright.pkgd.min.js](http://mediastuttgart.github.io/typeright/typeright.pkgd.min.js)
++ [typeright.pkgd.js](https://raw.github.com/mediastuttgart/typeright/v0.1.0/dist/typeright.pkgd.js)
++ [typeright.pkgd.min.js](https://raw.github.com/mediastuttgart/typeright/v0.1.0/dist/typeright.pkgd.min.js)
 
 Or install via [Bower](http://bower.io):
 
@@ -67,7 +75,7 @@ new typeRight(element, options, callback);
 ```
 
 + `element` _Element, NodeList, Array, or Selector String_
-+ `options` _Object, Object containing options passed to the instance
++ `options` _Object_, Object containing options passed to the instance
 + `callback` _Function_ - function triggered after all characters have been processed
 
 Using a callback function is the same as binding it to the `always` event (see below).
@@ -119,7 +127,7 @@ typeRight(element, {
 | Value     | Type      | Default   | Description                                        |
 | --------- | --------- | ----------| -------------------------------------------------- |
 | erase     | `boolean` | `false`   | Type or erase characters within the given element  |
-| content   | `string`  | `_empty_` | Content to type within the given element           |
+| content   | `string`  | _`empty`_ | Content to type within the given element           |
 | append    | `boolean` | `false`   | Append characters to an existing content           |
 | striptags | `boolean` | `true`    | Strip HTML-Tags from the given content             |
 | delay     | `integer` | `100`     | Delay between each processed character             |
@@ -131,6 +139,7 @@ typeRight is an Event Emitter. You can bind event listeners to events.
 
 ``` js
 var typer = typeRight(element, options);
+
 function onAlways (instance) {
     console.log('always');
 }
