@@ -75,8 +75,8 @@ new typeRight(element, options, callback);
 ```
 
 + `element` _Element, NodeList, Array, or Selector String_
-+ `options` _Object_, Object containing options passed to the instance
-+ `callback` _Function_ - function triggered after all characters have been processed
++ `options` _Object_, Object of options passed to the instance
++ `callback` _Function_ - Function triggered after all characters have been processed
 
 Using a callback function is the same as binding it to the `always` event (see below).
 
@@ -105,7 +105,7 @@ typeRight(buttons, options, function () {...});
 
 ``` js
 typeRight(element, {
-    content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit ...',
+    content: 'A simple javascript plugin for creating typewriter effects.',
     append: true,
     delay: 20,
     easing: true
@@ -139,7 +139,6 @@ typeRight is an Event Emitter. You can bind event listeners to events.
 
 ``` js
 var typer = typeRight(element, options);
-
 function onAlways (instance) {
     console.log('always');
 }
