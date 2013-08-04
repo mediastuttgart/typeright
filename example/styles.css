@@ -1,0 +1,23 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 20px;
+	font: 18px/32px 'Helvetica Neue', 'Helvetica', sans-serif;
+	background: #EEEEEE;
+}
+
+div {
+	padding: 20px;
+	color: #666666;
+	background: #FFFFFF;
+}
+
+h1 {
+
+	color: #333333;
+	padding: 0 10px;
+	font-size: 2.5em;
+}

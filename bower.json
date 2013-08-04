@@ -1,0 +1,9 @@
+{
+    "name": "typeright",
+    "version": "0.1.0",
+    "description": "A simple javascript plugin for creating typewriter effects.",
+    "main": "dist/typeright.min.js",
+    "dependencies": {
+        "eventEmitter": "~4.2"
+    }
+}
