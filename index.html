@@ -87,12 +87,12 @@ bower -version
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
 </pre></div>
 
 <p>you can use <code>new</code> if you like</p>
 
-<div class="highlight"><pre><span class="k">new</span> <span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
 </pre></div>
 
 <ul>
@@ -100,13 +100,15 @@ bower -version
 <code>element</code> <em>Element, NodeList, Array, or Selector String</em>
 </li>
 <li>
+<code>options</code> _Object, Object containing options passed to the instance</li>
+<li>
 <code>callback</code> <em>Function</em> - function triggered after all characters have been processed</li>
 </ul><p>Using a callback function is the same as binding it to the <code>always</code> event (see below).</p>
 
 <h3>
 <a name="element" class="anchor" href="#element"><span class="octicon octicon-link"></span></a>Element</h3>
 
-<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">),</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
@@ -114,21 +116,39 @@ bower -version
 <h3>
 <a name="selector-string" class="anchor" href="#selector-string"><span class="octicon octicon-link"></span></a>Selector string</h3>
 
-<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{...});</span>
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{...});</span>
 </pre></div>
 
 <h3>
 <a name="multiple-elements" class="anchor" href="#multiple-elements"><span class="octicon octicon-link"></span></a>Multiple elements</h3>
 
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.button'</span><span class="p">);</span>
-<span class="nx">typeRight</span><span class="p">(</span><span class="nx">buttons</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{...});</span>
+<span class="nx">typeRight</span><span class="p">(</span><span class="nx">buttons</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{...});</span>
+</pre></div>
+
+<h3>
+<a name="type-example" class="anchor" href="#type-example"><span class="octicon octicon-link"></span></a>Type example</h3>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">content</span><span class="o">:</span> <span class="s1">'Lorem ipsum dolor sit amet, consectetur adipisicing elit ...'</span><span class="p">,</span>
+    <span class="nx">append</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">delay</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nx">easing</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="erase-example" class="anchor" href="#erase-example"><span class="octicon octicon-link"></span></a>Erase example</h3>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">erase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">delay</span><span class="o">:</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="nx">easing</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
 </pre></div>
 
 <h2>
 <a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
-
-<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
-</pre></div>
 
 <table>
 <thead><tr>
@@ -175,33 +195,12 @@ bower -version
 <td>Enables easing when processing characters</td>
 </tr>
 </tbody>
-</table><h3>
-<a name="type" class="anchor" href="#type"><span class="octicon octicon-link"></span></a>Type</h3>
-
-<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">content</span><span class="o">:</span> <span class="s1">'Lorem ipsum dolor sit amet, consectetur adipisicing elit ...'</span><span class="p">,</span>
-    <span class="nx">append</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">delay</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="nx">easing</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span>
-</pre></div>
-
-<h3>
-<a name="erase" class="anchor" href="#erase"><span class="octicon octicon-link"></span></a>Erase</h3>
-
-<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">erase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">delay</span><span class="o">:</span> <span class="mi">40</span><span class="p">,</span>
-    <span class="nx">easing</span><span class="o">:</span> <span class="kc">true</span>
-<span class="p">});</span>
-</pre></div>
-
-<h2>
+</table><h2>
 <a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h2>
 
 <p>typeRight is an Event Emitter. You can bind event listeners to events.</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">typer</span> <span class="o">=</span> <span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">typer</span> <span class="o">=</span> <span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
 <span class="kd">function</span> <span class="nx">onAlways</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always'</span><span class="p">);</span>
 <span class="p">}</span>
@@ -265,7 +264,7 @@ bower -version
 
 <p>If you include jQuery, typeRight can be used as a jQuery Plugin.</p>
 
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">).</span><span class="nx">typeRight</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">).</span><span class="nx">typeRight</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
   <span class="c1">// callback</span>
 <span class="p">});</span>
 </pre></div>
@@ -275,7 +274,7 @@ bower -version
 
 <p>The jQuery plugin returns a <a href="http://api.jquery.com/category/deferred-object/">jQuery Deferred object</a>. This allows you to use <code>.always()</code>, <code>.done()</code> and <code>.progress()</code>, similarly to the emitted events.</p>
 
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">).</span><span class="nx">typeRight</span><span class="p">()</span>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">).</span><span class="nx">typeRight</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always - all characters have been processed'</span><span class="p">);</span>
     <span class="p">})</span>
@@ -313,7 +312,7 @@ bower -version
           This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
 
-
+        
       </div>
     </div>
   </body>
