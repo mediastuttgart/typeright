@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>typeRight by mediastuttgart</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>typeRight</h1>
+        <p>A simple typewriter providing type and erase functionality</p>
+
+        <p class="view"><a href="https://github.com/mediastuttgart/typeright">View the Project on GitHub <small>mediastuttgart/typeright</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mediastuttgart/typeright/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mediastuttgart/typeright/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mediastuttgart/typeright">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="typeright" class="anchor" href="#typeright"><span class="octicon octicon-link"></span></a>typeright</h1>
+
+<p>A simple javascript plugin for creating typewriter effects.</p>
+
+<p>Everything heavily inspired by the wonderful <a href="http://desandro.github.io/imagesloaded/">imagesLoaded plugin</a> from <a href="https://github.com/desandro">David DeSandro</a></p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Get a packaged source file:</p>
+
+<ul>
+<li><a href="http://github.com/mediastuttgart/typeright/blob/v0.1.0/dist/typeright.pkgd.min.js">typeright.pkgd.min.js</a></li>
+<li><a href="http://github.com/mediastuttgart/typeright/blob/v0.1.0/dist/typeright.pkgd.js">typeright.pkgd.js</a></li>
+</ul><p>Or install via <a href="http://bower.io">Bower</a>:</p>
+
+<div class="highlight"><pre>bower install typeright
+</pre></div>
+
+<h2>
+<a name="build" class="anchor" href="#build"><span class="octicon octicon-link"></span></a>Build</h2>
+
+<p>First, clone a copy of the main typeRight git repository by running:</p>
+
+<div class="highlight"><pre>git clone git://github.com/mediastuttgart/typeright.git
+</pre></div>
+
+<p>Install the grunt-cli and bower packages if you haven't before. These should be done as global installs:</p>
+
+<div class="highlight"><pre>npm install -g grunt-cli bower
+</pre></div>
+
+<p>Make sure you have grunt and bower installed by testing:</p>
+
+<div class="highlight"><pre>grunt -version
+bower -version
+</pre></div>
+
+<p>Enter the typeRight directory and install the Node and Bower dependencies:</p>
+
+<div class="highlight"><pre><span class="nb">cd </span>typeright <span class="o">&amp;&amp;</span> npm install <span class="o">&amp;&amp;</span> bower install
+</pre></div>
+
+<p>Then run grunt to build typeRight:</p>
+
+<div class="highlight"><pre>grunt
+</pre></div>
+
+<p>The built version of typeRight will be put in the <code>dist/</code> subdirectory, along with the minified copy and packaged version including dependencies.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</pre></div>
+
+<p>you can use <code>new</code> if you like</p>
+
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</pre></div>
+
+<ul>
+<li>
+<code>element</code> <em>Element, NodeList, Array, or Selector String</em>
+</li>
+<li>
+<code>callback</code> <em>Function</em> - function triggered after all characters have been processed</li>
+</ul><p>Using a callback function is the same as binding it to the <code>always</code> event (see below).</p>
+
+<h3>
+<a name="element" class="anchor" href="#element"><span class="octicon octicon-link"></span></a>Element</h3>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">),</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="selector-string" class="anchor" href="#selector-string"><span class="octicon octicon-link"></span></a>Selector string</h3>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{...});</span>
+</pre></div>
+
+<h3>
+<a name="multiple-elements" class="anchor" href="#multiple-elements"><span class="octicon octicon-link"></span></a>Multiple elements</h3>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.button'</span><span class="p">);</span>
+<span class="nx">typeRight</span><span class="p">(</span><span class="nx">buttons</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{...});</span>
+</pre></div>
+
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</pre></div>
+
+<table>
+<thead><tr>
+<th>Value</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>erase</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Type or erase characters within the given element</td>
+</tr>
+<tr>
+<td>content</td>
+<td><code>string</code></td>
+<td><code>_empty_</code></td>
+<td>Content to type within the given element</td>
+</tr>
+<tr>
+<td>append</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Append characters to an existing content</td>
+</tr>
+<tr>
+<td>striptags</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Strip HTML-Tags from the given content</td>
+</tr>
+<tr>
+<td>delay</td>
+<td><code>integer</code></td>
+<td><code>100</code></td>
+<td>Delay between each processed character</td>
+</tr>
+<tr>
+<td>easing</td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Enables easing when processing characters</td>
+</tr>
+</tbody>
+</table><h3>
+<a name="type" class="anchor" href="#type"><span class="octicon octicon-link"></span></a>Type</h3>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">content</span><span class="o">:</span> <span class="s1">'Lorem ipsum dolor sit amet, consectetur adipisicing elit ...'</span><span class="p">,</span>
+    <span class="nx">append</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">delay</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="nx">easing</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="erase" class="anchor" href="#erase"><span class="octicon octicon-link"></span></a>Erase</h3>
+
+<div class="highlight"><pre><span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">erase</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">delay</span><span class="o">:</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="nx">easing</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h2>
+
+<p>typeRight is an Event Emitter. You can bind event listeners to events.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">typer</span> <span class="o">=</span> <span class="nx">typeRight</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">onAlways</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always'</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Bind with <code>.on()</code></p>
+
+<div class="highlight"><pre><span class="nx">typer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'always'</span><span class="p">,</span> <span class="nx">onAlways</span><span class="p">);</span>
+</pre></div>
+
+<p>Unbind with <code>.off()</code></p>
+
+<div class="highlight"><pre><span class="nx">typer</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">'always'</span><span class="p">,</span> <span class="nx">onAlways</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="always" class="anchor" href="#always"><span class="octicon octicon-link"></span></a>always</h3>
+
+<div class="highlight"><pre><span class="nx">typer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'always'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always - all characters have been processed'</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Triggered after all characters have been processed.</p>
+
+<ul>
+<li>
+<code>instance</code> <em>TypeRight</em> - typeRight instance</li>
+</ul><h3>
+<a name="done" class="anchor" href="#done"><span class="octicon octicon-link"></span></a>done</h3>
+
+<div class="highlight"><pre><span class="nx">typer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'done'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always - all characters have been successfully processed'</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Triggered after all characters have been successfully processed.</p>
+
+<ul>
+<li>
+<code>instance</code> <em>TypeRight</em> - typeRight instance</li>
+</ul><h3>
+<a name="progress" class="anchor" href="#progress"><span class="octicon octicon-link"></span></a>progress</h3>
+
+<div class="highlight"><pre><span class="nx">typer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'progress'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">position</span><span class="p">,</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'current caret position: '</span> <span class="o">+</span> <span class="nx">position</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>Triggered after a single character has been processed.</p>
+
+<ul>
+<li>
+<code>instance</code> <em>TypeRight</em> - typeRight instance</li>
+<li>
+<code>position</code> <em>number</em> - current position of the caret</li>
+<li>
+<code>element</code> <em>object</em> - element with which typeRight operates</li>
+</ul><h2>
+<a name="jquery" class="anchor" href="#jquery"><span class="octicon octicon-link"></span></a>jQuery</h2>
+
+<p>If you include jQuery, typeRight can be used as a jQuery Plugin.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">).</span><span class="nx">typeRight</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// callback</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="jquery-deferred" class="anchor" href="#jquery-deferred"><span class="octicon octicon-link"></span></a>jQuery Deferred</h3>
+
+<p>The jQuery plugin returns a <a href="http://api.jquery.com/category/deferred-object/">jQuery Deferred object</a>. This allows you to use <code>.always()</code>, <code>.done()</code> and <code>.progress()</code>, similarly to the emitted events.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#container'</span><span class="p">).</span><span class="nx">typeRight</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">always</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always - all characters have been processed'</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'always - all characters have been successfully processed'</span><span class="p">);</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">progress</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">position</span><span class="p">,</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'current caret position: '</span> <span class="o">+</span> <span class="nx">position</span><span class="p">);</span>
+    <span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="requirejs" class="anchor" href="#requirejs"><span class="octicon octicon-link"></span></a>RequireJS</h2>
+
+<p>typeRight works with RequireJS.</p>
+
+<ol>
+<li>Install typeRight and its dependencies</li>
+<li>Update your <a href="http://requirejs.org/docs/api.html#config-paths">RequireJS paths config</a> so it can find those modules</li>
+</ol><div class="highlight"><pre><span class="nx">requirejs</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+  <span class="nx">paths</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"eventEmitter"</span><span class="o">:</span> <span class="s2">"bower_components/eventEmitter"</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="mit-license" class="anchor" href="#mit-license"><span class="octicon octicon-link"></span></a>MIT License</h2>
+
+<p>typeRight is released under the <a href="http://desandro.mit-license.org/">MIT License</a>.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mediastuttgart">mediastuttgart</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
