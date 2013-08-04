@@ -2,14 +2,16 @@
 
 A simple javascript plugin for creating typewriter effects.
 
+[mediastuttgart.github.io/typeright](http://mediastuttgart.github.io/typeright)
+
 Everything heavily inspired by the wonderful [imagesLoaded plugin](http://desandro.github.io/imagesloaded/) from [David DeSandro](https://github.com/desandro)
 
 ## Install
 
 Get a packaged source file:
 
-+ [typeright.pkgd.min.js](http://github.com/mediastuttgart/typeright/blob/v0.1.0/dist/typeright.pkgd.min.js)
-+ [typeright.pkgd.js](http://github.com/mediastuttgart/typeright/blob/v0.1.0/dist/typeright.pkgd.js)
++ [typeright.pkgd.js](http://mediastuttgart.github.io/typeright/typeright.pkgd.js)
++ [typeright.pkgd.min.js](http://mediastuttgart.github.io/typeright/typeright.pkgd.min.js)
 
 Or install via [Bower](http://bower.io):
 
