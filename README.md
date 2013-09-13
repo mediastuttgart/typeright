@@ -8,18 +8,18 @@ Code pattern and docs inspired by the wonderful [imagesLoaded plugin](http://des
 
 ## Latest version
 
-0.1.0
+0.2.0
 
 ## Documentation
 
-08/04/13
+09/13/13
 
 ## Install
 
 Get a packaged source file:
 
-+ [typeright.pkgd.js](https://raw.github.com/mediastuttgart/typeright/v0.1.0/dist/typeright.pkgd.js)
-+ [typeright.pkgd.min.js](https://raw.github.com/mediastuttgart/typeright/v0.1.0/dist/typeright.pkgd.min.js)
++ [typeright.pkgd.js](https://raw.github.com/mediastuttgart/typeright/v0.2.0/dist/typeright.pkgd.js)
++ [typeright.pkgd.min.js](https://raw.github.com/mediastuttgart/typeright/v0.2.0/dist/typeright.pkgd.min.js)
 
 Or install via [Bower](http://bower.io):
 

@@ -645,7 +645,7 @@ if (typeof define === 'function' && define.amd) {
 	define(['eventEmitter/EventEmitter'], defineTypeRight);
 }
 else {
-	window.typeRight = defineTypeRight(window.EventEmitter);
+	window.TypeRight = defineTypeRight(window.EventEmitter);
 }
 
 })(window);
