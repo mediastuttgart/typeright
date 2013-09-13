@@ -238,4 +238,4 @@ requirejs.config({
 
 ## MIT License
 
-typeRight is released under the [MIT License](http://desandro.mit-license.org/).
+typeRight is released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
